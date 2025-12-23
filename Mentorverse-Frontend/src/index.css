@@ -1,0 +1,56 @@
+/* @import url('https://fonts.googleapis.csom/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --primary-color: #0d9488;
+  --gradient-primary: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #0891b2 100%);
+  --bg-color: #f8fafc;
+  --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --gradient-secondary: 135deg, var(--primary-color), #0891b2;
+  --shadow-primary: 0 3px 10px rgba(0, 0, 0, 0.1);
+  --shadow-secondary: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --gradient-animation: 90deg, transparent, rgba(255, 255, 255, 0.2), transparent;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 5px;
+  border: 2px solid var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
