@@ -10,6 +10,7 @@ const FeaturedMentors = ({ mentors, loading, error, onNavigate }) => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
+    mentors.length == 0 ? "No Mentor Found" :
     <div className="bg-(--bg-color) text-center flex flex-col items-center px-24 pb-15">
       <h2 className="featured-mentors-heading text-5xl font-extrabold relative w-fit justify-self-center pb-4">
         Featured Mentors
