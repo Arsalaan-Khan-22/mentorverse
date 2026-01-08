@@ -31,6 +31,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "https://mentorverse.netlify.app")
+//@CrossOrigin
 public class AuthController {
 
 	private final UserRepository userRepository;

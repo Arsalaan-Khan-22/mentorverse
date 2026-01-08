@@ -17,12 +17,6 @@ const Mentors = () => {
   const debouncedSearch = useDebounce(search, 500);
   const navigate = useNavigate();
 
-  // const fetchAllMentors = async () => {
-  //     let response = await api.get("/mentors")
-  //     console.log(response.data);
-  //     setMentors(response.data.data);
-  // }
-
   const fetchAllMentors = async () => {
     let response = await api.get("/mentors", {
       params: {
@@ -33,9 +27,8 @@ const Mentors = () => {
         size,
       },
     });
-    console.log(response.data.data);
     setMentors(response.data.data.content);
-    setTotalPages(response.data.data.totalPages)
+    setTotalPages(response.data.data.totalPages);
   };
 
   const handlePageChange = (newPage) => {
@@ -66,10 +59,11 @@ const Mentors = () => {
   }, []);
 
   return (
-    <div className="bg-(--bg-color) py-32 px-24">
-      <h2 className="text-4xl font-bold tracking-wide">
+    <div className="bg-(--bg-color) px-6 sm:px-12 lg:px-24 py-32">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide">
         Find Your Perfect Mentor
       </h2>
+
       <FilterMentors
         filteration={{
           search,
@@ -82,16 +76,19 @@ const Mentors = () => {
         }}
         allSkills={allSkills}
       />
-      <p className="text-gray-600 my-8">
+
+      <p className="text-gray-600 my-6 sm:my-8 text-sm sm:text-base">
         Found <span className="font-bold">{mentors.length}</span>{" "}
         {mentors.length > 1 ? "mentors" : "mentor"}
       </p>
-      <div className="grid grid-cols-4 gap-7">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
         {mentors.map((mentor) => (
           <MentorCard key={mentor.id} mentor={mentor} onNavigate={navigate} />
         ))}
       </div>
-      <div className="flex justify-between items-center mt-8">
+
+      <div className="flex flex-row justify-between items-center gap-4 sm:gap-0 mt-8 text-sm sm:text-base">
         <button
           onClick={() => handlePageChange(page - 1)}
           disabled={page === 0}

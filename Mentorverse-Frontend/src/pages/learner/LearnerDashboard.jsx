@@ -9,7 +9,7 @@ import DashboardCourses from "../../components/learnerComponents/DashboardCourse
 import { useAuth } from "../../context/AuthContext";
 
 const LearnerDashboard = () => {
-  const {user} = useAuth();
+  const { user } = useAuth();
   const learnerId = user?.id;
   const [learnerName, setLearnerName] = useState(null);
   const [stats, setStats] = useState([
@@ -99,7 +99,7 @@ const LearnerDashboard = () => {
 
   const fetchCourses = async () => {
     let response = await api.get(`/learners/dashboard-courses/${learnerId}`);
-    console.log(response.data)
+    console.log(response.data);
     setCourseDetails(response.data.data);
   };
 
@@ -110,25 +110,25 @@ const LearnerDashboard = () => {
   }, []);
 
   return (
-    <div className="bg-(--bg-color) py-32 px-24">
-      <div className="flex justify-between px-14">
+    <div className="bg-(--bg-color) px-6 sm:px-12 lg:px-24 py-32">
+      <div className="flex flex-col sm:flex-row justify-between px-4 sm:px-14">
         <div>
-          <h2 className="text-[2.5rem] font-bold tracking-wider">
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold tracking-wider">
             Welcome back, {learnerName}
           </h2>
-          <p className="text-gray-600 text-lg mt-3 mb-9">
+          <p className="text-gray-600 text-base sm:text-lg mt-3 mb-6 sm:mb-9">
             Continue your learning journey
           </p>
         </div>
       </div>
 
-      <div className="flex justify-around gap-7">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 sm:gap-7">
         {stats.map((item) => (
           <StatsCard key={item.label} stats={item} />
         ))}
       </div>
 
-      <div className="py-9 flex justify-between gap-10">
+      <div className="py-9 flex flex-col lg:flex-row justify-between gap-10">
         <UpcomingSessions
           upcomingSessions={upcomingSessions}
           onCancelSession={cancelSession}
@@ -137,7 +137,8 @@ const LearnerDashboard = () => {
 
         <DashboardCourses courseDetails={courseDetails} onNavigate={navigate} />
       </div>
-      <div className="flex justify-center gap-7">
+
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 sm:gap-7 justify-center">
         {otherLinks.map((data, index) => {
           return <QuickActionCard key={index} data={data} />;
         })}

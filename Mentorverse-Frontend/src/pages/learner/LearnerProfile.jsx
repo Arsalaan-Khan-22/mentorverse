@@ -124,27 +124,27 @@ const LearnerProfile = () => {
   }, [learnerInfo]);
 
   return (
-    <div className="bg-(--bg-color) py-32 px-24 flex flex-col gap-8">
-      <UserProfileInfo
-        userInfo={{
-          userName: learnerInfo.name,
-          userEmail: learnerInfo.email,
-        }}
-        profilePhoto={learnerInfo.profilePic}
-        preview={preview}
-        selectedFile={selectedFile}
-        handleFileChange={handleFileChange}
-        isUpdating={isUpdating}
-        isDisabled={isDisabled}
-        handleForm={{ handleUpdate, isDirty, register }}
-        handleLogout={handleLogout}
-      />
+    <div className="bg-(--bg-color) px-6 md:px-12 lg:px-24 py-32 flex flex-col gap-8">
+    <UserProfileInfo
+      userInfo={{
+        userName: learnerInfo.name,
+        userEmail: learnerInfo.email,
+      }}
+      profilePhoto={learnerInfo.profilePic}
+      preview={preview}
+      selectedFile={selectedFile}
+      handleFileChange={handleFileChange}
+      isUpdating={isUpdating}
+      isDisabled={isDisabled}
+      handleForm={{ handleUpdate, isDirty, register }}
+      handleLogout={handleLogout}
+    />
 
-      <LearnerProfileForm
-        isDisabled={isDisabled}
-        handleForm={{ register, handleUpdate, errors }}
-      />
-    </div>
+    <LearnerProfileForm
+      isDisabled={isDisabled}
+      handleForm={{ register, handleUpdate, errors }}
+    />
+  </div>
   );
 };
 

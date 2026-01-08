@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/progress")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "https://mentorverse.netlify.app")
+//@CrossOrigin
 public class VideoProgressController {
 
     private final VideoProgressService videoProgressService;

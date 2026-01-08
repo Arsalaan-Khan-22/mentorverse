@@ -29,9 +29,8 @@ const Courses = () => {
         size,
       },
     });
-    console.log(response.data.data);
     setCourses(response.data.data.content);
-    setTotalPages(response.data.data.totalPages)
+    setTotalPages(response.data.data.totalPages);
   };
 
   const handlePageChange = (newPage) => {
@@ -59,8 +58,11 @@ const Courses = () => {
   }, [debouncedSearch, category, sortBy, level, page, size]);
 
   return (
-    <div className="bg-(--bg-color) py-32 px-24">
-      <h2 className="text-4xl font-bold tracking-wide">Browse Courses</h2>
+    <div className="bg-(--bg-color) px-6 md:px-12 lg:px-24 py-32">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide">
+        Browse Courses
+      </h2>
+
       <FilterCourses
         categories={categories}
         filteration={{
@@ -75,7 +77,8 @@ const Courses = () => {
           handleReset,
         }}
       />
-      <p className="text-gray-600 my-8">
+
+      <p className="text-gray-600 my-6 sm:my-8">
         Found <span className="font-bold">{courses.length}</span>{" "}
         {courses.length > 1 ? "courses" : "course"}
       </p>
@@ -84,26 +87,28 @@ const Courses = () => {
         <p className="text-center text-gray-600">No Courses Found</p>
       )}
 
-      <div className="grid grid-cols-4 gap-7">
-        {courses.length > 0 && courses.map((course) => (
-          <CourseCard key={course.id} course={course} onNavigate={navigate} />
-        ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+        {courses.length > 0 &&
+          courses.map((course) => (
+            <CourseCard key={course.id} course={course} onNavigate={navigate} />
+          ))}
       </div>
-      <div className="flex justify-between items-center mt-8">
+
+      <div className="flex flex-row justify-between items-center mt-8 gap-4 sm:gap-0">
         <button
           onClick={() => handlePageChange(page - 1)}
           disabled={page === 0}
-          className="py-2 px-4 bg-(--primary-color) text-white rounded disabled:bg-gray-300 cursor-pointer"
+          className="py-2 px-4 bg-(--primary-color) text-white rounded disabled:bg-gray-300 cursor-pointer w-full sm:w-auto"
         >
           Previous
         </button>
-        <div>
+        <div className="text-center sm:text-left">
           Page {page + 1} of {totalPages}
         </div>
         <button
           onClick={() => handlePageChange(page + 1)}
           disabled={page === totalPages - 1}
-          className="py-2 px-4 bg-(--primary-color) text-white rounded disabled:bg-gray-300 cursor-pointer"
+          className="py-2 px-4 bg-(--primary-color) text-white rounded disabled:bg-gray-300 cursor-pointer w-full sm:w-auto"
         >
           Next
         </button>

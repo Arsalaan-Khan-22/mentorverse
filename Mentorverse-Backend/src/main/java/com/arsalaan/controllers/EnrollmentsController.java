@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("api")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "https://mentorverse.netlify.app")
+//@CrossOrigin
 public class EnrollmentsController {
 
 	private final EnrollmentsService enrollmentsService;

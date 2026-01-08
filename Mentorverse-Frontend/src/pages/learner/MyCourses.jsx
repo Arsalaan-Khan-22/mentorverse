@@ -19,7 +19,6 @@ const MyCourses = () => {
 
   const fetchCourses = async () => {
     let response = await api.get(`/learners/${learnerId}/courses`);
-    console.log(response.data);
     setCourses(response.data.data);
   };
 
@@ -28,11 +27,13 @@ const MyCourses = () => {
   }, []);
 
   return (
-    <div className="px-24 py-32 bg-(--bg-color)">
-      <h2 className="text-4xl tracking-wider font-bold">My Courses</h2>
+    <div className="px-6 md:px-12 lg:px-24 py-32 bg-(--bg-color)">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-wider font-bold">
+        My Courses
+      </h2>
 
       {courses.length === 0 && (
-        <h3 className="text-center mt-10 text-lg text-gray-600">
+        <h3 className="text-center mt-10 text-base sm:text-lg text-gray-600">
           You haven't enrolled in any courses yet.{" "}
           <Link
             className="text-(--primary-color) font-semibold underline underline-offset-4"
@@ -43,10 +44,10 @@ const MyCourses = () => {
         </h3>
       )}
 
-      <div className="mt-10 grid grid-cols-4 gap-8">
-        {coursesWithProgress.map((course) => {
-          return <MyCoursesCard key={course.id} course={course} onNavigate={navigate} />;
-        })}
+      <div className="mt-10 grid md:grid-cols-[repeat(auto-fit,minmax(300px,300px))] gap-6 sm:gap-8">
+        {coursesWithProgress.map((course) => (
+          <MyCoursesCard key={course.id} course={course} onNavigate={navigate} />
+        ))}
       </div>
     </div>
   );

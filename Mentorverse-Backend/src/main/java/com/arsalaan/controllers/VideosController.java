@@ -18,7 +18,8 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "https://mentorverse.netlify.app")
+//@CrossOrigin(origins = "https://mentorverse.netlify.app")
+@CrossOrigin
 public class VideosController {
 
 	private final VideosService videosService;

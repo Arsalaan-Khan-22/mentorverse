@@ -3,24 +3,25 @@ import { FiFilter, FiRefreshCw, FiSearch } from "react-icons/fi";
 
 const FilterMentors = ({ filteration, allSkills }) => {
   return (
-    <div className="flex flex-col gap-7 w-full bg-white mt-12 p-8 rounded-2xl shadow-(--card-shadow)">
-      <div className="flex items-center outline-2 rounded-xl outline-gray-200 focus-within:outline-(--primary-color) focus-within:shadow-(--shadow-primary) transition-all duration-300">
-        <FiSearch className="text-xl text-gray-600 mx-3" />
+    <div className="flex flex-col gap-6 w-full bg-white mt-8 sm:mt-12 p-4 sm:p-6 lg:p-8 rounded-2xl shadow-(--card-shadow)">
+      <div className="flex items-center rounded-xl border-2 border-gray-200 focus-within:border-(--primary-color) focus-within:shadow-(--shadow-primary) transition-all duration-300">
+        <FiSearch className="text-lg sm:text-xl text-gray-600 mx-2 sm:mx-3" />
         <input
           onChange={(e) => filteration.setSearch(e.target.value)}
           value={filteration.search}
-          className="w-full focus:outline-none py-3"
+          className="w-full focus:outline-none py-2 sm:py-3 text-sm sm:text-base"
           type="text"
           placeholder="Search courses by title, mentor, or skill..."
         />
       </div>
-      <div className="flex items-center gap-10">
-        <div className="flex items-center gap-3">
+
+      <div className="flex flex-col md:flex-row sm:items-center gap-6 sm:gap-10">
+        <div className="flex items-center gap-2 sm:gap-3">
           <FiFilter className="text-(--primary-color)" />
-          <span className="font-medium">Skills:</span>
+          <span className="font-medium text-sm sm:text-base">Skills:</span>
           <select
             onChange={(e) => filteration.setFilter(e.target.value)}
-            className="px-3 py-2 rounded-lg border-2 border-gray-200 cursor-pointer focus:border-(--primary-color) focus:shadow-(--card-shadow) focus:outline-none transition-all duration-300"
+            className="px-2 sm:px-3 py-1 sm:py-2 rounded-lg border-2 border-gray-200 cursor-pointer focus:border-(--primary-color) focus:shadow-(--card-shadow) focus:outline-none transition-all duration-300 text-sm sm:text-base"
             name="category"
             value={filteration.filter}
           >
@@ -31,11 +32,12 @@ const FilterMentors = ({ filteration, allSkills }) => {
             ))}
           </select>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="font-medium">Sort by:</span>
+
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span className="font-medium text-sm sm:text-base">Sort by:</span>
           <select
             onChange={(e) => filteration.setSortBy(e.target.value)}
-            className="px-3 py-2 rounded-lg border-2 border-gray-200 cursor-pointer focus:border-(--primary-color) focus:shadow-(--card-shadow) focus:outline-none transition-all duration-300"
+            className="px-2 sm:px-3 py-1 sm:py-2 rounded-lg border-2 border-gray-200 cursor-pointer focus:border-(--primary-color) focus:shadow-(--card-shadow) focus:outline-none transition-all duration-300 text-sm sm:text-base"
             name="category"
             value={filteration.sortBy}
           >
@@ -45,8 +47,12 @@ const FilterMentors = ({ filteration, allSkills }) => {
             <option value="mostExperience">Most Experience</option>
           </select>
         </div>
-        <button onClick={filteration.handleReset} className="cursor-pointer">
-          <FiRefreshCw />
+
+        <button
+          onClick={filteration.handleReset}
+          className="cursor-pointer text-gray-600 hover:text-(--primary-color) transition-colors duration-200 self-end sm:self-auto"
+        >
+          <FiRefreshCw className="text-base sm:text-lg" />
         </button>
       </div>
     </div>
