@@ -284,7 +284,8 @@ Mentorverse-Backend/
 
 ## 🎨 Screenshots
 
-> **Note**: Add screenshots of your application here to showcase the UI and key features.
+<!-- > **Note**: Add screenshots of your application here to showcase the UI and key features. -->
+![Website Screenshot](image.png)
 
 ---
 <!-- 
