@@ -276,9 +276,9 @@ Mentorverse-Backend/
 - `GET /api/reviews/mentor/{mentorId}` - Get mentor reviews
 - `POST /api/reviews` - Submit a review
 
-### Payments
+<!-- ### Payments
 - `POST /api/payments/create-order` - Create Razorpay order
-- `POST /api/payments/verify` - Verify payment
+- `POST /api/payments/verify` - Verify payment -->
 
 ---
 
