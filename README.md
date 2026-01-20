@@ -341,7 +341,7 @@ Mentorverse-Backend/
 
 <div align="center">
 
-**Made with ❤️ by Arsalaan Khan**
+**Developed by Arsalaan Khan**
 
 [⬆ Back to Top](#mentorverse)
 
